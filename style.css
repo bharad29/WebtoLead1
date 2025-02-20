@@ -79,3 +79,12 @@ input {
 .submit:hover {
     background-color: darkblue;
 }
+
+.g-recaptcha{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    
+
+
+}
