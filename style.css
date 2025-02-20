@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: antiquewhite;
+}
+
+/* Title Container: Align Image & Text */
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the left */
+    width: 90%;
+    max-width: 400px; /* Same as form */
+    margin-bottom: 20px; /* Space between title and form */
+}
+
+/* .title-container img { 
+    width: 100px; /* Adjust as needed 
+    height: 50px;
+    margin-right: 10px; /* Space between image & text 
+} */
+
+h1 {
+    font-size: 28px;
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: darkblue;
+}
