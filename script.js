@@ -16,6 +16,10 @@ async function checkDuplicateEmail() {
             }
         });
 
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         let emailExists = await response.json();
         
         if (emailExists) {
@@ -50,6 +54,7 @@ async function beforesubmit(event) {
     }
 
     event.target.submit(); // If all checks pass, manually submit the form
+    return true;
 }
 
 // Captcha timestamp function

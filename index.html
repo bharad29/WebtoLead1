@@ -6,17 +6,14 @@
     <title>Create Lead</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
 
 <div class="title-container">
-    
-    <h1>Create  Lead</h1>
-
-    
+    <h1>Create Lead</h1>
 </div>
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DQy00000Ktro9" method="POST" onsubmit="beforesubmit(event)">
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DQy00000Ktro9" method="POST" onsubmit="return beforesubmit(event)">
         <input type=hidden name='captcha_settings' value='{"keyname":"WebtoLead","fallback":"true","orgId":"00DQy00000Ktro9","ts":""}'>
         <input type="hidden" name="oid" value="00DQy00000Ktro9">
         <input type="hidden" name="retURL" value="https://bharad29.github.io/WebtoLead1/thanks.html">
@@ -45,8 +42,8 @@
             
             <div class="g-recaptcha" 
             data-callback="captchasuccess"
-            data-sitekey="6LchAN0qAAAAAKJutyCIGBwe_Z6OFgK6rxo0pqeE"></div><br></div>
-
+            data-sitekey="6LchAN0qAAAAAKJutyCIGBwe_Z6OFgK6rxo0pqeE"></div><br>
+        </div>
 
         <button type="submit" class="submit">Submit</button>
     </form>
