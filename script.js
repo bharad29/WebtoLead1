@@ -1,10 +1,11 @@
 let captchachecked = false;
 
+// Function to check for duplicate email
 async function checkDuplicateEmail() {
     let emailField = document.getElementById("email");
     let errorText = document.getElementById("email-error");
 
-    if (emailField.value.trim() === "") return;
+    if (emailField.value.trim() === "") return false;
 
     try {
         let response = await fetch(`https://your-instance.salesforce.com/services/apexrest/checkLeadEmail/?email=${emailField.value.trim()}`, {
@@ -16,6 +17,7 @@ async function checkDuplicateEmail() {
         });
 
         let emailExists = await response.json();
+        
         if (emailExists) {
             errorText.style.display = "inline";
             emailField.style.border = "2px solid red";
@@ -27,24 +29,30 @@ async function checkDuplicateEmail() {
         }
     } catch (error) {
         console.error("Error checking email:", error);
+        return false;
     }
 }
 
+// Function to validate before submitting
 async function beforesubmit(event) {
-    let isDuplicate = await checkDuplicateEmail();
+    event.preventDefault(); // Always prevent submission first
+
+    let isDuplicate = await checkDuplicateEmail(); // Wait for the check
 
     if (isDuplicate) {
         alert("This email is already registered. Please use a different email.");
-        event.preventDefault();
         return false;
     }
 
     if (!captchachecked) {
         alert("Please check the reCaptcha");
-        event.preventDefault();
+        return false;
     }
+
+    event.target.submit(); // If all checks pass, manually submit the form
 }
 
+// Captcha timestamp function
 function timestamp() {
     var response = document.getElementById("g-recaptcha-response");
     if (response == null || response.value.trim() == "") {
@@ -55,6 +63,7 @@ function timestamp() {
 }
 setInterval(timestamp, 500);
 
+// Captcha success function
 function captchasuccess() {
     captchachecked = true;
 }
